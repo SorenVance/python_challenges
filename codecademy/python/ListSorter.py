@@ -9,7 +9,6 @@ def sort_list(list_to_sort, direction):
     return list_to_sort
 
 
-
 class ListSorterTests(unittest.TestCase):
     test_list = [5, 6, 1, 7, 3, 9, 2, 8, 4, 10]
     asc_list = list(range(1, 11))

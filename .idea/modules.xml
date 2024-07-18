@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/codecademy/codecademy.iml" filepath="$PROJECT_DIR$/codecademy/codecademy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nina/nina.iml" filepath="$PROJECT_DIR$/nina/nina.iml" />
       <module fileurl="file://$PROJECT_DIR$/python_challenges.iml" filepath="$PROJECT_DIR$/python_challenges.iml" />
     </modules>
   </component>

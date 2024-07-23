@@ -40,7 +40,7 @@ ELEMENT_NAMES_TO_EXTRACT = {'Profile': ['Id', 'Name', 'Description'],
 FILE_FORMAT_KEYS = ['FilePattern', 'FilePatternBIAS', 'FilePatternDARK', 'FilePatternFLAT']
 
 NAME_SPACE_REGEX = re.compile(r'\s*xmlns(:[^\s>"]+)?="[^"]+"\s*')  # Find all namespace attributes
-TYPE_AND_NIL_REGEX = re.compile(r'\s+i:(?:type|nil)="[^"]*"')         # Find all 'type' and 'nil' attributes
+TYPE_AND_NIL_REGEX = re.compile(r'\s+i:(?:type|nil)="[^"]*"')      # Find all 'type' and 'nil' attributes
 A_B_OPEN_TAG_REGEX = re.compile(r'(?<=<)(a:|b:)')                  # Find all '<a:' or '<b:' opening tags
 A_B_CLOSE_TAG_REGEX = re.compile(r'(?<=</)(a:|b:)')                # Find all '</a:' or '</b:' closing tags
 

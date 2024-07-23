@@ -24,7 +24,7 @@ def format_value(v):
     if isinstance(v, list):
         return ', '.join(map(str, v))
 
-    stripped = v.strip() if type(v) is str else v
+    stripped = v.strip() if isinstance(v, str) else v
     if is_int(stripped):
         return int(stripped)
     if is_float(stripped):

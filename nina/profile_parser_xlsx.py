@@ -16,6 +16,9 @@ def setup_worksheet(wkbk, sheet_name):
     worksheet = wkbk.add_worksheet(sheet_name)
     worksheet.set_margins(right=0.25, top=0.25, bottom=0.25)
     worksheet.fit_to_pages(1, 1)
+    worksheet.set_column(0, 0, 20)
+    worksheet.set_column(0, 1, 36)
+    worksheet.set_column(2, 2, 70)
     return worksheet
 
 
@@ -43,7 +46,6 @@ class ProfileParerXLSX(ProfileParser):
         sheet_name = profile_name.replace(' - ', '_').replace(' ', '_').replace('/', '-')
         worksheet = setup_worksheet(workbook, sheet_name)
         self.print_rows(workbook, worksheet, f'Profile Information for {profile_name}')
-        worksheet.autofit()
         return []
 
     def print_rows(self, wkbk, worksheet, xls_title):
@@ -61,6 +63,7 @@ class ProfileParerXLSX(ProfileParser):
             sub_elements = self.print_child_element(val, tag_names)
             row = print_sub_elements(default_text_format, col, row, sub_elements, worksheet)
             worksheet.merge_range(row, 0, row, 2, None, merged_cells_format)
+            worksheet.set_row(row, 4)
             row += 1
 
         self.print_file_formats(worksheet, row, default_text_format, smaller_text_format)
@@ -74,10 +77,6 @@ class ProfileParerXLSX(ProfileParser):
             value = self.profile_xml.find(f'.//{key}')
             if value is not None:
                 path_and_file_name = value.text.strip()
-                last_slash = path_and_file_name.rfind('\\') + 1
-                path = path_and_file_name[:last_slash]
-                file_name = path_and_file_name[last_slash:]
                 worksheet.write(row, 0, spacey_key, default_text_format)
-                worksheet.write(row + 1, 0, f'      {path_and_file_name}', default_text_format)
-
+                worksheet.write(row + 1, 0, f'      {path_and_file_name}', smaller_text_format)
                 row += 2
